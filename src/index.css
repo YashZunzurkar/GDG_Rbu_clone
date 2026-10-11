@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-pixel: 'Silkscreen', 'Press Start 2P', system-ui;
+  --font-mono: 'Space Mono', 'Roboto Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --color-gdg-red: #EA4335;
+  --color-gdg-blue: #4285F4;
+  --color-gdg-yellow: #FBBC04;
+  --color-gdg-green: #34A853;
+  --color-gdg-purple: #7C73FF;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-black bg-white transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-zinc-950 text-white;
+  }
+}
+
+@layer utilities {
+  .shadow-neo {
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  }
+  .dark .shadow-neo {
+    box-shadow: 4px 4px 0px 0px rgba(255,255,255,1);
+  }
+  .shadow-neo-hover {
+    box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+    transform: translate(2px, 2px);
+  }
+  .dark .shadow-neo-hover {
+    box-shadow: 2px 2px 0px 0px rgba(255,255,255,1);
+    transform: translate(2px, 2px);
+  }
+  
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+  
+  .dark .bg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
